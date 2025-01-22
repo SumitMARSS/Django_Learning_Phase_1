@@ -25,4 +25,7 @@ urlpatterns = [
     path("about/", views.about, name='about'),
     path("contact/", views.contact, name='contact'),
     path("chai/", include('chai.urls')),
+
+    # not req in probuction as we do build
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
