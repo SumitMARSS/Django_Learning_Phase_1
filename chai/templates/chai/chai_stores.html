@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %} Chai Store Detail Page{% endblock %}
+
+{% block content %}
+test conent for forms
+    <form method="post">
+        {% comment %} we have to put manul csrf token so that no one can inject, for safty purpose {% endcomment %}
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class=" bg-green-700"> Search Store</button>
+    </form>
+
+    <div>
+        {% if stores %}
+            <p>Stores avilable</p>
+            {% for store in stores  %}
+                {{store.name}} -  {{store.location}}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
